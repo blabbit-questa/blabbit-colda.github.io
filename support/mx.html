@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soporte de Colda</title>
+    <meta name="description" content="Página de soporte de Colda por Blabbit." />
+    <style>
+        :root {
+            --bg: #f5f7f6;
+            --surface: #ffffff;
+            --text: #1f2a2a;
+            --muted: #5f6b6b;
+            --accent: #76d7c4;
+            --accent-dark: #2f8f7d;
+            --border: #dfe7e5;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --radius: 20px;
+            --max-width: 900px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--accent-dark);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .wrap {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 20px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: inherit;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        main {
+            padding: 18px 0 64px;
+        }
+
+        .hero,
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero {
+            padding: 34px 24px;
+            margin-bottom: 18px;
+        }
+
+        .section {
+            padding: 24px;
+            margin-top: 18px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(118, 215, 196, 0.18);
+            color: var(--accent-dark);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.2rem;
+            line-height: 1.3;
+        }
+
+        p {
+            margin: 0 0 14px;
+            color: var(--text);
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li+li {
+            margin-top: 10px;
+        }
+
+        .mail-box {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 14px 18px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: #fbfcfc;
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 28px 0 48px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 720px) {
+
+            .hero,
+            .section {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap nav">
+            <a class="brand" href="/">Colda</a>
+            <nav class="nav-links">
+                <a href="/">Inicio</a>
+                <a href="/privacy/">Privacidad</a>
+                <a href="/terms/">Términos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="eyebrow">Soporte</div>
+            <h1>Soporte de Colda</h1>
+            <p>
+                ¿Necesitas ayuda con Colda? En esta página puedes encontrar información básica
+                de soporte, formas de contacto y respuestas a preguntas frecuentes.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Contacto</h2>
+            <p>
+                Si tienes dudas, sugerencias o algún problema al usar la app, contáctanos por correo electrónico.
+            </p>
+            <a class="mail-box" href="mailto:help.blabbit@gmail.com">help.blabbit@gmail.com</a>
+            <p class="muted" style="margin-top: 12px;">
+                Incluye [Colda] en el asunto del correo y, si puedes, agrega también
+                el modelo del dispositivo, la versión de iOS, la versión de la app y una breve
+                descripción del problema.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Ayuda común</h2>
+            <ul>
+                <li>En la pestaña Comparar puedes ver los registros de precio más recientes de cada tienda.</li>
+                <li>Puedes agregar registros de precio seleccionando artículo, tienda, precio, cantidad y fecha.</li>
+                <li>Los artículos y las tiendas pueden agregarse y administrarse desde la pestaña Gestionar.</li>
+                <li>Las opciones de orden y visualización pueden cambiarse en Ajustes.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Información de versión</h2>
+            <p>
+                Puedes revisar la versión actual de la app dentro de la aplicación en:
+            </p>
+            <p class="muted">
+                Ajustes → Información → Versión de la app
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Tiempo de respuesta</h2>
+            <p>
+                Haremos nuestro mejor esfuerzo por revisar las consultas lo antes posible.
+                El tiempo de respuesta puede variar según la cantidad de mensajes y el idioma.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Blabbit. All rights reserved.
+    </footer>
+</body>
+
+</html>
