@@ -1,0 +1,3 @@
+# app-ads.txt for Colda
+# Advertising is not enabled in the current version.
+# This file will be updated when AdMob is added in a future release.

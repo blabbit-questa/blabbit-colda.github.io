@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colda</title>
+    <meta name="description" content="Colda는 가격을 기록하고, 스토어를 비교하고, 아이템을 한곳에서 관리할 수 있도록 도와줍니다." />
+    <style>
+        :root {
+            --bg: #f5f7f6;
+            --surface: #ffffff;
+            --text: #1f2a2a;
+            --muted: #5f6b6b;
+            --accent: #76d7c4;
+            --accent-dark: #2f8f7d;
+            --border: #dfe7e5;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --radius: 20px;
+            --max-width: 980px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                "Noto Sans KR", "Malgun Gothic", "Segoe UI", Roboto, Helvetica, Arial,
+                sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 20px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .hero {
+            padding: 48px 0 24px;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, #ffffff 0%, #eef9f6 100%);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            padding: 48px 28px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(118, 215, 196, 0.18);
+            color: var(--accent-dark);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            margin: 18px 0 0;
+            max-width: 700px;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #133430;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(0.98);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            border-color: var(--border);
+            color: var(--text);
+        }
+
+        main {
+            padding: 20px 0 72px;
+        }
+
+        .section {
+            margin-top: 22px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 22px;
+        }
+
+        .card h2,
+        .card h3 {
+            margin: 0 0 10px;
+            line-height: 1.2;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .feature {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: #fbfcfc;
+        }
+
+        .feature h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+        }
+
+        .feature p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .link-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: #fbfcfc;
+        }
+
+        .link-item span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 28px 0 48px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+
+            .grid,
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                padding: 36px 20px;
+            }
+
+            .link-item {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap nav">
+            <a href="./ko.html" class="brand">Colda</a>
+            <nav class="nav-links">
+                <a href="./support/ko.html">지원</a>
+                <a href="./privacy/ko.html">개인정보 처리방침</a>
+                <a href="./terms/ko.html">이용약관</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="hero-card">
+                <div class="eyebrow">더 간단한 가격 기록</div>
+                <h1>가격은 기록하고, 비교는 더 똑똑하게.</h1>
+                <p>
+                    Colda는 아이템, 스토어, 가격 기록을 한곳에서 정리할 수 있도록 도와줘요.
+                    내가 산 가격을 기록하고, 스토어별 최신 가격을 비교하고,
+                    단가 비교로 더 분명한 선택을 할 수 있어요.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#">
+                        App Store 링크 준비 중
+                    </a>
+                    <a class="btn btn-secondary" href="./support/ko.html">
+                        지원 페이지 보기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section grid">
+            <div class="card">
+                <h2>왜 Colda인가요?</h2>
+                <p>
+                    Colda는 일상적인 가격을 더 깔끔하게 기록하고 싶은 사람을 위해 만들어졌어요.
+                    복잡하게 만들지 않으면서도 필요한 비교와 정리는 놓치지 않도록 구성했어요.
+                </p>
+
+                <div class="feature-list">
+                    <div class="feature">
+                        <h3>스토어별 가격을 쉽게 비교</h3>
+                        <p>
+                            스토어별 최신 가격 기록을 나란히 보고, 더 저렴한 가격을 빠르게 확인할 수 있어요.
+                        </p>
+                    </div>
+                    <div class="feature">
+                        <h3>나만의 가격 기록 관리</h3>
+                        <p>
+                            가격, 수량, 날짜를 기록해 내 생활에 맞는 가격 히스토리를 쌓을 수 있어요.
+                        </p>
+                    </div>
+                    <div class="feature">
+                        <h3>폴더로 더 깔끔하게 정리</h3>
+                        <p>
+                            폴더 기반으로 아이템을 관리해 목록이 많아져도 더 쉽게 찾아볼 수 있어요.
+                        </p>
+                    </div>
+                    <div class="feature">
+                        <h3>내 방식에 맞는 비교 화면</h3>
+                        <p>
+                            정렬, 표시 방식 등 비교 관련 설정을 바꿔 내 사용 습관에 맞게 조정할 수 있어요.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>바로가기</h2>
+                <p>
+                    도움이 필요하거나 법적 안내가 필요하다면 아래 공식 페이지에서 확인할 수 있어요.
+                </p>
+
+                <div class="link-list">
+                    <a class="link-item" href="./support/ko.html">
+                        <strong>지원</strong>
+                        <span>문의 방법과 앱 지원 정보를 확인할 수 있어요.</span>
+                    </a>
+
+                    <a class="link-item" href="./privacy/ko.html">
+                        <strong>개인정보 처리방침</strong>
+                        <span>Colda가 정보를 어떻게 다루는지 확인할 수 있어요.</span>
+                    </a>
+
+                    <a class="link-item" href="./terms/ko.html">
+                        <strong>이용약관</strong>
+                        <span>Colda 이용 규칙과 조건을 확인할 수 있어요.</span>
+                    </a>
+
+                    <a class="link-item" href="./app-ads.txt">
+                        <strong>app-ads.txt</strong>
+                        <span>향후 광고 연동을 위한 인증 파일이에요.</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Blabbit. All rights reserved.
+    </footer>
+</body>
+
+</html>
